@@ -22,16 +22,23 @@ This project contains:
    git push -u origin main
    ```
 
-## Hosting
+## GitHub deployment
+
+Your GitHub repo:
+- `https://github.com/JeraSoftware/Complaint-Application`
+
+A GitHub Actions workflow is included at `.github/workflows/deploy-frontend.yml`.
+It publishes the `Front end/` folder to GitHub Pages on every push to `main`.
 
 ### Frontend
-- Deploy static HTML on GitHub Pages, Netlify, or Vercel.
+- Deploy static HTML on GitHub Pages using the workflow above.
+- Expected Pages URL:
+  `https://jerasoftware.github.io/Complaint-Application/`
 - Use `Front end/` as the site root.
 
 ### Backend
-- Deploy the Spring Boot app on Azure App Service, AWS Elastic Beanstalk, or Heroku.
-- Deploy the Node backend on the same provider or a separate service.
-- Update frontend fetch URLs to point to the deployed backend endpoints.
+- The Node backend and Spring Boot backend still need separate hosting.
+- After deployment, update frontend fetch URLs to the deployed backend endpoints.
 
 ## Notes
 - Keep `backend/` and `SpringBootBackend/` running separately during development.
