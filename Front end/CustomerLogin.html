@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Customer Login</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="HomePage.html">
+      <img src="img/OIP.webp" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+      <span>Admin Panel</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="siteNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="HomePage.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div
+    class="d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card p-4 shadow"
+         style="width:400px;">
+
+      <h3 class="text-center mb-4">
+
+        Customer Login
+
+      </h3>
+
+      <!-- Mobile -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+
+          Mobile Number
+
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="mobile"
+          maxlength="10"
+          placeholder="Enter Mobile Number">
+
+      </div>
+
+      <!-- OTP -->
+
+     <!-- OTP -->
+<div class="mb-3" id="otpDiv" style="display: none">
+  <label class="form-label"> Enter OTP </label>
+
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="bi bi-shield-lock"></i>
+    </span>
+
+    <input
+      type="text"
+      class="form-control"
+      id="otpInput"
+      placeholder="Enter OTP"
+      maxlength="4"
+      disabled
+    />
+  </div>
+</div>
+
+      <!-- Buttons -->
+
+      <button
+        class="btn btn-success mb-3"
+        onclick="sendOTP()">
+
+        Send OTP
+
+      </button>
+
+      <button
+        class="btn btn-primary"
+        onclick="loginCustomer()">
+
+        Login
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function sendOTP() {
+
+  let mobile =
+    document.getElementById("mobile").value;
+
+  if (mobile === "") {
+
+    alert("Enter Mobile Number");
+    return;
+  }
+
+  if (mobile.length !== 10 || isNaN(mobile)) {
+
+    alert("Enter Valid Mobile Number");
+    return;
+  }
+
+  alert("OTP Sent Successfully");
+
+  // Show OTP Field
+  document.getElementById("otpDiv").style.display = "block";
+
+  // Enable OTP Input
+  document.getElementById("otpInput").disabled = false;
+}
+
+function loginCustomer() {
+
+  let otp =
+    document.getElementById("otpInput").value;
+
+  if (otp === "") {
+
+    alert("Enter OTP");
+    return;
+  }
+
+  if (otp !== "1234") {
+
+    alert("Invalid OTP");
+    return;
+  }
+
+  alert("Customer Login Successful");
+
+  window.location.href = "ComplaintPage.html";
+}
+
+</script>
+
+</body>
+</html>
